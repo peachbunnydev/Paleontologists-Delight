@@ -5,6 +5,7 @@ plugins {
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
     id 'org.spongepowered.mixin' version '0.7.+' apply true
+//    id 'dev.architectury.loom' version '1.17-SNAPSHOT'
 }
 
 version = mod_version
@@ -86,6 +87,8 @@ minecraft {
         client {
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             property 'forge.enabledGameTestNamespaces', mod_id
+//            property 'mixin.env.remapRefMap', 'true'
+//            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
         }
 
         server {
@@ -153,6 +156,9 @@ repositories {
         name = 'More Hitboxes'
         url 'https://dl.cloudsmith.io/public/darkpred-mods/more-hitboxes/maven/'
     }
+    maven {
+        name = "Architectury"
+        url "https://maven.architectury.dev/" }
 }
 
 dependencies {
@@ -178,6 +184,7 @@ dependencies {
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-1.20.1:4.8.4")
     implementation("com.eliotlash.mclib:mclib:20")
     implementation fg.deobf('com.github.darkpred.morehitboxes:morehitboxes-forge-1.20.1:1.9.2')
+    implementation("dev.architectury:architectury-forge:9.2.14")
 
 
     // Example mod dependency using a mod jar from ./libs with a flat dir repository
