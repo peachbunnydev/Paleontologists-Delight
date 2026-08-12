@@ -5,7 +5,6 @@ plugins {
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
     id 'org.spongepowered.mixin' version '0.7.+' apply true
-//    id 'dev.architectury.loom' version '1.17-SNAPSHOT'
 }
 
 version = mod_version
@@ -33,7 +32,7 @@ minecraft {
     //
     // Use non-default mappings at your own risk. They may not always work.
     // Simply re-run your setup task after changing the mappings to update your workspace.
-    mappings channel: mapping_channel, version: mapping_version
+    mappings channel: 'parchment', version: '2023.09.03-1.20.1'
 
     // When true, this property will have all Eclipse/IntelliJ IDEA run configurations run the "prepareX" task for the given run configuration before launching the game.
     // In most cases, it is not necessary to enable.
@@ -87,13 +86,21 @@ minecraft {
         client {
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             property 'forge.enabledGameTestNamespaces', mod_id
-//            property 'mixin.env.remapRefMap', 'true'
-//            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "paleontologists_delight/build/createSrgToMcp/output.srg"
         }
 
         server {
             property 'forge.enabledGameTestNamespaces', mod_id
             args '--nogui'
+            minecraft {
+                runs {
+                    client {
+                        property 'mixin.env.remapRefMap', 'true'
+                        property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+                    }
+                }
+            }
         }
 
         // This run config launches GameTestServer and runs all registered gametests, then exits.
@@ -109,6 +116,14 @@ minecraft {
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
             args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            minecraft {
+                runs {
+                    client {
+                        property 'mixin.env.remapRefMap', 'true'
+                        property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+                    }
+                }
+            }
         }
     }
 }
@@ -167,7 +182,7 @@ dependencies {
     // The "userdev" classifier will be requested and setup by ForgeGradle.
     // If the group id is "net.minecraft" and the artifact id is one of ["client", "server", "joined"],
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
-    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    minecraft "net.minecraftforge:forge:1.20.1-47.4.22"
 
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
