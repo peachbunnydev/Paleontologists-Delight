@@ -1,7 +1,9 @@
 package net.peachbunny.paleontologists_delight;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.CreativeModeTabRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -11,7 +13,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.peachbunny.paleontologists_delight.item.ModItems;
+import net.peachbunny.paleontologists_delight.item.PDModItems;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -27,7 +29,7 @@ public class PaleontologistsDelight
     {
         IEventBus modEventBus = context.getModEventBus();
 
-        ModItems.register(modEventBus);
+        PDModItems.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -42,6 +44,11 @@ public class PaleontologistsDelight
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
+        //TODO remove this and add a custom creative tab
+        if(event.getTabKey() == CreativeModeTabs.COMBAT)
+        {
+            event.accept(PDModItems.SCARAB_KNIFE);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
