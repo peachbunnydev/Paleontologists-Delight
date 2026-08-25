@@ -49,6 +49,10 @@ public class PaleontologistsDelight
         {
             event.accept(PDModItems.SCARAB_KNIFE);
         }
+        if(event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS)
+        {
+            event.accept(PDModItems.BIG_EGG);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
