@@ -173,7 +173,23 @@ repositories {
     }
     maven {
         name = "Architectury"
-        url "https://maven.architectury.dev/" }
+        url "https://maven.architectury.dev/"
+    }
+    maven {
+        // location of the maven that hosts JEI files before January 2023
+        name = "Progwml6's maven"
+        url = "https://dvs1.progwml6.com/files/maven/"
+    }
+    maven {
+        // location of the maven that hosts JEI files since January 2023
+        name = "Jared's maven"
+        url = "https://maven.blamejared.com/"
+    }
+    maven {
+        // location of a maven mirror for JEI files, as a fallback
+        name = "ModMaven"
+        url = "https://modmaven.dev"
+    }
 }
 
 dependencies {
@@ -200,6 +216,12 @@ dependencies {
     implementation fg.deobf("com.eliotlash.mclib:mclib:20")
     implementation fg.deobf('com.github.darkpred.morehitboxes:morehitboxes-forge-1.20.1:1.9.2')
     implementation fg.deobf("dev.architectury:architectury-forge:9.2.14")
+
+    // compile against the JEI API but do not include it at runtime
+    compileOnly(fg.deobf("mezz.jei:jei-1.20.1-forge-api:${jei_version}"))
+    compileOnly(fg.deobf("mezz.jei:jei-1.20.1-common-api:${jei_version}"))
+    // at runtime, use the full JEI jar for Forge
+    runtimeOnly(fg.deobf("mezz.jei:jei-1.20.1-forge:${jei_version}"))
 
 
     // Example mod dependency using a mod jar from ./libs with a flat dir repository

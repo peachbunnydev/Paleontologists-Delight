@@ -11,7 +11,7 @@ import vectorwing.farmersdelight.common.item.KnifeItem;
 
 import static vectorwing.farmersdelight.common.registry.ModItems.basicItem;
 
-public class ModItems {
+public class PDModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, PaleontologistsDelight.MOD_ID);
 
     public static final RegistryObject<Item> SCARAB_KNIFE = ITEMS.register("scarab_knife", () -> new KnifeItem(Tiers.DIAMOND, 0.5F, -2.0F, basicItem()));
