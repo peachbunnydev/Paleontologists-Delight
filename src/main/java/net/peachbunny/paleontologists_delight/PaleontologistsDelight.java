@@ -13,6 +13,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.peachbunny.paleontologists_delight.block.PDModBlocks;
 import net.peachbunny.paleontologists_delight.item.PDModItems;
 import org.slf4j.Logger;
 
@@ -30,6 +31,7 @@ public class PaleontologistsDelight
         IEventBus modEventBus = context.getModEventBus();
 
         PDModItems.register(modEventBus);
+        PDModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
