@@ -35,6 +35,9 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.peachbunny.paleontologists_delight.item.PDModItems;
+import vectorwing.farmersdelight.common.utility.ShapeUtils;
+
+import java.util.Map;
 import java.util.function.Supplier;
 
 public class EggBlock extends Block {
@@ -47,6 +50,7 @@ public class EggBlock extends Block {
             Block.box(8, 0, 0, 16, 2, 8), BooleanOp.OR),
             Block.box(8, 0, 0, 16, 2, 8)
             };
+    private static final VoxelShape[][] ROTATED_SHAPES = buildShapes();
     public final Supplier<Item> piece;
 
     private final int MAX_BITES = 3;
@@ -74,7 +78,7 @@ public class EggBlock extends Block {
     }
 
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return SHAPES[state.getValue(BITES)];
+        return ROTATED_SHAPES[(Integer)state.getValue(BITES)][((Direction)state.getValue(FACING)).get2DDataValue()];
     }
 
     public RenderShape getRenderShape(BlockState state)
@@ -84,6 +88,20 @@ public class EggBlock extends Block {
 
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         return (BlockState)this.defaultBlockState().setValue(FACING, context.getHorizontalDirection());
+    }
+
+    private static VoxelShape[][] buildShapes() {
+        VoxelShape[][] result = new VoxelShape[SHAPES.length][4];
+
+        for(int i = 0; i < SHAPES.length; ++i) {
+            Map<Direction, VoxelShape> rotated = ShapeUtils.getShapesRotatedFromNorth(SHAPES[i]);
+
+            for(Map.Entry<Direction, VoxelShape> entry : rotated.entrySet()) {
+                result[i][((Direction)entry.getKey()).get2DDataValue()] = (VoxelShape)entry.getValue();
+            }
+        }
+
+        return result;
     }
 
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {

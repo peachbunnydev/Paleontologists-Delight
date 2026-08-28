@@ -2,48 +2,48 @@
   "variants": {
     "bites=0,facing=east": {
       "model": "paleontologists_delight:block/big_egg_block",
-      "y": 90
+      "y": 270
     },
     "bites=0,facing=north": {
-      "model": "paleontologists_delight:block/big_egg_block"
-    },
-    "bites=0,facing=south": {
       "model": "paleontologists_delight:block/big_egg_block",
       "y": 180
+    },
+    "bites=0,facing=south": {
+      "model": "paleontologists_delight:block/big_egg_block"
     },
     "bites=0,facing=west": {
       "model": "paleontologists_delight:block/big_egg_block",
-      "y": 270
+      "y": 90
     },
     "bites=1,facing=east": {
       "model": "paleontologists_delight:block/big_egg_block_bite1",
-      "y": 90
+      "y": 270
     },
     "bites=1,facing=north": {
-      "model": "paleontologists_delight:block/big_egg_block_bite1"
-    },
-    "bites=1,facing=south": {
       "model": "paleontologists_delight:block/big_egg_block_bite1",
       "y": 180
+    },
+    "bites=1,facing=south": {
+      "model": "paleontologists_delight:block/big_egg_block_bite1"
     },
     "bites=1,facing=west": {
       "model": "paleontologists_delight:block/big_egg_block_bite1",
-      "y": 270
+      "y": 90
     },
     "bites=2,facing=east": {
       "model": "paleontologists_delight:block/big_egg_block_bite2",
-      "y": 90
+      "y": 270
     },
     "bites=2,facing=north": {
-      "model": "paleontologists_delight:block/big_egg_block_bite2"
-    },
-    "bites=2,facing=south": {
       "model": "paleontologists_delight:block/big_egg_block_bite2",
       "y": 180
     },
+    "bites=2,facing=south": {
+      "model": "paleontologists_delight:block/big_egg_block_bite2"
+    },
     "bites=2,facing=west": {
       "model": "paleontologists_delight:block/big_egg_block_bite2",
-      "y": 270
+      "y": 90
     }
   }
 }

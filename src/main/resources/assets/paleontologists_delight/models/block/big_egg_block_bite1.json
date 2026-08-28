@@ -6,7 +6,8 @@
 		"8": "paleontologists_delight:block/egg1_texture",
 		"9": "paleontologists_delight:block/yolk3_texture",
 		"10": "paleontologists_delight:block/yolk1_texture",
-		"11": "paleontologists_delight:block/yolk2_texture"
+		"11": "paleontologists_delight:block/yolk2_texture",
+		"particle": "paleontologists_delight:block/egg3_texture"
 	},
 	"elements": [
 		{
