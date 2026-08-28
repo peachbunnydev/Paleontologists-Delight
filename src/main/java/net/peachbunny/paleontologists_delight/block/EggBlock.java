@@ -41,11 +41,11 @@ public class EggBlock extends Block {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final IntegerProperty BITES = IntegerProperty.create("bites", 0, 2);
     protected static final VoxelShape[] SHAPES = new VoxelShape[]{
-            Block.box(0, 0, 0, 16, 3 ,16),
+            Block.box(0, 0, 0, 16, 2 ,16),
             Shapes.join(
-            Block.box(9, 0, 9, 16, 3, 16),
-            Block.box(8, 0, 0, 16, 3, 9), BooleanOp.OR),
-            Block.box(8, 0, 0, 16, 3, 9)
+            Block.box(8, 0, 8, 16, 2, 16),
+            Block.box(8, 0, 0, 16, 2, 8), BooleanOp.OR),
+            Block.box(8, 0, 0, 16, 2, 8)
             };
     public final Supplier<Item> piece;
 

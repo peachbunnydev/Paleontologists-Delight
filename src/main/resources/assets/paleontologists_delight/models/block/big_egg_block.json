@@ -1,13 +1,13 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "block/egg3_texture",
-		"1": "block/egg2_texture",
-		"2": "block/egg1_texture",
-		"3": "block/yolk3_texture",
-		"4": "block/yolk1_texture",
-		"5": "block/yolk2_texture",
-		"particle": "block/egg3_texture"
+		"0": "paleontologists_delight:block/egg3_texture",
+		"1": "paleontologists_delight:block/egg2_texture",
+		"2": "paleontologists_delight:block/egg1_texture",
+		"3": "paleontologists_delight:block/yolk3_texture",
+		"4": "paleontologists_delight:block/yolk1_texture",
+		"5": "paleontologists_delight:block/yolk2_texture",
+		"particle": "paleontologists_delight:block/egg3_texture"
 	},
 	"elements": [
 		{
