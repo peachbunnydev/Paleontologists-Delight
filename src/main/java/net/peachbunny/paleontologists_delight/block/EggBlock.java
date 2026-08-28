@@ -35,16 +35,18 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.peachbunny.paleontologists_delight.item.PDModItems;
-import vectorwing.farmersdelight.common.utility.ItemUtils;
-import vectorwing.farmersdelight.common.utility.ShapeUtils;
-
-import java.util.Map;
 import java.util.function.Supplier;
 
 public class EggBlock extends Block {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
-    public static final IntegerProperty BITES = BlockStateProperties.BITES;//IntegerProperty.create("bites", 0, 3);
-    protected static final VoxelShape[] SHAPES = new VoxelShape[]{Block.box(0, 0, 0, 8, 3, 16), Block.box(9, 0, 9, 16, 3, 16), Block.box(9, 0, 0, 16, 3, 8)};
+    public static final IntegerProperty BITES = IntegerProperty.create("bites", 0, 2);
+    protected static final VoxelShape[] SHAPES = new VoxelShape[]{
+            Block.box(0, 0, 0, 16, 3 ,16),
+            Shapes.join(
+            Block.box(9, 0, 9, 16, 3, 16),
+            Block.box(8, 0, 0, 16, 3, 9), BooleanOp.OR),
+            Block.box(8, 0, 0, 16, 3, 9)
+            };
     public final Supplier<Item> piece;
 
     private final int MAX_BITES = 3;
@@ -72,7 +74,7 @@ public class EggBlock extends Block {
     }
 
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return SHAPES[2];//state.getValue(BITES)];
+        return SHAPES[state.getValue(BITES)];
     }
 
     public RenderShape getRenderShape(BlockState state)
