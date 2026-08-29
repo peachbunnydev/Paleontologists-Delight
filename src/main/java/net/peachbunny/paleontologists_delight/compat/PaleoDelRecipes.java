@@ -12,6 +12,7 @@ import net.minecraft.world.level.ItemLike;
 import net.peachbunny.paleontologists_delight.PaleontologistsDelight;
 import net.peachbunny.paleontologists_delight.item.PDModItems;
 import com.github.teamfossilsarcheology.fossil.item.ModItems;
+import vectorwing.farmersdelight.common.crafting.CookingPotRecipe;
 
 import java.util.List;
 import java.util.Optional;
@@ -31,7 +32,7 @@ public class PaleoDelRecipes
         }
     }
 
-    public List<CraftingRecipe> getSpecialCraftingRecipes() {
+    public List<CraftingRecipe> getCraftingRecipes() {
         List<CraftingRecipe> recipes = Lists.newArrayList();
 
         addValidatedSpecialRecipe(recipes, "scarab_knife", null,
@@ -45,6 +46,13 @@ public class PaleoDelRecipes
 
         return recipes;
     }
+//
+//    public List<CookingPotRecipe> getCookingRecipes()
+//    {
+//        List<CookingPotRecipe> recipes = Lists.newArrayList();
+//
+//        return recipes;
+//    }
 
     public void addValidatedSpecialRecipe(List<CraftingRecipe> recipeList, String recipeId, String group, NonNullList<Ingredient> inputs, ItemLike output) {
         Optional<? extends Recipe<?>> specialRecipe = recipeManager.byKey(findRL(recipeId));

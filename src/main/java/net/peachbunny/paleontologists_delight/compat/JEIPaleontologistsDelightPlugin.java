@@ -1,6 +1,5 @@
 package net.peachbunny.paleontologists_delight.compat;
 
-import com.google.common.collect.Lists;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.RecipeTypes;
@@ -9,12 +8,8 @@ import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.crafting.CraftingRecipe;
 import net.minecraft.world.item.crafting.RecipeManager;
-import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.peachbunny.paleontologists_delight.PaleontologistsDelight;
-
-import java.util.List;
 
 @JeiPlugin
 public class JEIPaleontologistsDelightPlugin implements IModPlugin{
@@ -34,10 +29,10 @@ public class JEIPaleontologistsDelightPlugin implements IModPlugin{
     public void registerRecipes(IRecipeRegistration registration)
     {
         RecipeManager rm = Minecraft.getInstance().level.getRecipeManager();
-        PaleoDelRecipes pdl = new PaleoDelRecipes();
+        PaleoDelRecipes pdr = new PaleoDelRecipes();
 
-        registration.addRecipes(RecipeTypes.CRAFTING, pdl.getSpecialCraftingRecipes());
-        //List<CraftingRecipe> recipes = Lists.newArrayList();
+        registration.addRecipes(RecipeTypes.CRAFTING, pdr.getCraftingRecipes());
+
 
     }
 

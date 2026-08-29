@@ -1,0 +1,35 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 100,
+  "experience": 0.35,
+  "ingredients": [
+    [
+      {
+        "tag": "fossil:dino_eggs"
+      },
+      {
+        "tag": "fossil:bird_eggs"
+      }
+    ],
+    [
+      {
+        "tag": "fossil:dino_eggs"
+      },
+      {
+        "tag": "fossil:bird_eggs"
+      }
+    ],
+    [
+      {
+        "tag": "fossil:dino_eggs"
+      },
+      {
+        "tag": "fossil:bird_eggs"
+      }
+    ]
+  ],
+  "recipe_book_tab": "misc",
+  "result": {
+    "item": "paleontologists_delight:big_egg"
+  }
+}
