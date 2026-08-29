@@ -6,9 +6,7 @@ import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.registration.IGuiHandlerRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
-import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.crafting.RecipeManager;
 import net.peachbunny.paleontologists_delight.PaleontologistsDelight;
 
 @JeiPlugin
@@ -28,7 +26,6 @@ public class JEIPaleontologistsDelightPlugin implements IModPlugin{
     @Override
     public void registerRecipes(IRecipeRegistration registration)
     {
-        RecipeManager rm = Minecraft.getInstance().level.getRecipeManager();
         PaleoDelRecipes pdr = new PaleoDelRecipes();
 
         registration.addRecipes(RecipeTypes.CRAFTING, pdr.getCraftingRecipes());

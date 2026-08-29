@@ -7,8 +7,6 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.peachbunny.paleontologists_delight.PaleontologistsDelight;
-import net.peachbunny.paleontologists_delight.item.PDModItems;
-import vectorwing.farmersdelight.common.block.PieBlock;
 
 import java.util.function.Supplier;
 
